@@ -124,6 +124,26 @@ function Menu() {
         </Link>
 
         <Link
+          to="/templates"
+          className={`flex items-center px-4 py-3 rounded-md ${
+            isActive("/templates") ? "bg-[#6B0000]" : "hover:bg-[#6B0000]"
+          }`}
+        >
+          <i className="mr-3">T</i>
+          <span>Templates</span>
+        </Link>
+
+        <Link
+          to="/predictions"
+          className={`flex items-center px-4 py-3 rounded-md ${
+            isActive("/predictions") ? "bg-[#6B0000]" : "hover:bg-[#6B0000]"
+          }`}
+        >
+          <i className="mr-3">P</i>
+          <span>Predictions</span>
+        </Link>
+
+        <Link
           to="/faq"
           className={`flex items-center px-4 py-3 rounded-md ${
             isActive("/faq") ? "bg-[#6B0000]" : "hover:bg-[#6B0000]"

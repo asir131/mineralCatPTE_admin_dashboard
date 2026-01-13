@@ -64,6 +64,8 @@ import Privecy from "../pages/dashboard/Terms & Service/Privecy";
 
 import EditPrivacy from "../pages/dashboard/JodiEditor/EditPrivacy";
 import EditUser from './../pages/dashboard/users/EditUser';
+import Templates from "../pages/dashboard/templates/Templates";
+import Predictions from "../pages/dashboard/predictions/Predictions";
 
 const router = createBrowserRouter([
   {
@@ -444,6 +446,22 @@ const router = createBrowserRouter([
         element: (
           <Admin>
             <Subscription />
+          </Admin>
+        ),
+      },
+      {
+        path: "/templates",
+        element: (
+          <Admin>
+            <Templates />
+          </Admin>
+        ),
+      },
+      {
+        path: "/predictions",
+        element: (
+          <Admin>
+            <Predictions />
           </Admin>
         ),
       },
