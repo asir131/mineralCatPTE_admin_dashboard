@@ -3,7 +3,7 @@ import App from "../App";
 import LogIn from "../pages/auth/login/LogIn";
 import SignIn from "../pages/auth/signIn/SignIn";
 import ForgetFrom from "../pages/auth/forgottenPassword/ForgetFrom";
-import VerifyOTP from "../pages/auth/OTP/verifyOTP";
+import VerifyOTP from "../pages/auth/OTP/VerifyOTP";
 import SetPassword from "../pages/auth/setNewPassword/SetPassword";
 import DashboardHome from "../pages/dashboard/home/DashboardHome";
 import AllUsers from "../pages/dashboard/users/AllUsers";
