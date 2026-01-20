@@ -66,6 +66,7 @@ import EditPrivacy from "../pages/dashboard/JodiEditor/EditPrivacy";
 import EditUser from './../pages/dashboard/users/EditUser';
 import Templates from "../pages/dashboard/templates/Templates";
 import Predictions from "../pages/dashboard/predictions/Predictions";
+import HomeFaq from "../pages/dashboard/faq/HomeFaq";
 
 const router = createBrowserRouter([
   {
@@ -478,6 +479,14 @@ const router = createBrowserRouter([
         element: (
           <Admin>
             <Faq />
+          </Admin>
+        ),
+      },
+      {
+        path: "/faq/home",
+        element: (
+          <Admin>
+            <HomeFaq />
           </Admin>
         ),
       },

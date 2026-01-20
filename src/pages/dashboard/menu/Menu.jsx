@@ -1,6 +1,7 @@
-
+﻿
 import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
+import { FaAngleRight, FaCrown, FaDollarSign, FaFileAlt, FaHome, FaQuestionCircle, FaSignOutAlt, FaUsers, FaCog } from "react-icons/fa"
 import Logo from '/logo.png'
 // Import icons from a React icon library like react-icons
 // For this example, I'll use comments to indicate where icons would be
@@ -48,7 +49,7 @@ function Menu() {
           }`}
         >
           {/* Home Icon */}
-          <i className="mr-3">🏠</i>
+          <FaHome className="mr-3" />
           <span>Dashboard</span>
         </Link>
 
@@ -59,7 +60,7 @@ function Menu() {
           }`}
         >
           {/* Users Icon */}
-          <i className="mr-3">👥</i>
+          <FaUsers className="mr-3" />
           <span>Users</span>
         </Link>
 
@@ -70,7 +71,7 @@ function Menu() {
           }`}
         >
           {/* Question Icon */}
-          <i className="mr-3">❓</i>
+          <FaQuestionCircle className="mr-3" />
           <span>Question</span>
         </Link>
 
@@ -83,11 +84,11 @@ function Menu() {
           >
             <div className="flex items-center">
               {/* File Icon */}
-              <i className="mr-3">📄</i>
+              <FaFileAlt className="mr-3" />
               <span>Mock Test</span>
             </div>
             {/* Right Arrow Icon */}
-            <i>▶</i>
+            <FaAngleRight />
           </button>
           {expanded.mockTest && (
             <div className="pl-12 space-y-1 mt-1">
@@ -108,7 +109,7 @@ function Menu() {
           }`}
         >
           {/* Dollar Icon */}
-          <i className="mr-3">💰</i>
+          <FaDollarSign className="mr-3" />
           <span>Earning</span>
         </Link>
 
@@ -119,7 +120,7 @@ function Menu() {
           }`}
         >
           {/* Crown Icon */}
-          <i className="mr-3">👑</i>
+          <FaCrown className="mr-3" />
           <span>Subscription</span>
         </Link>
 
@@ -150,8 +151,17 @@ function Menu() {
           }`}
         >
           {/* FAQ Icon */}
-          <i className="mr-3">❔</i>
+          <FaQuestionCircle className="mr-3" />
           <span>FAQ</span>
+        </Link>
+        <Link
+          to="/faq/home"
+          className={`flex items-center px-4 py-3 rounded-md ${
+            isActive("/faq/home") ? "bg-[#6B0000]" : "hover:bg-[#6B0000]"
+          }`}
+        >
+          <FaQuestionCircle className="mr-3" />
+          <span>Homepage FAQ</span>
         </Link>
 
         <div>
@@ -163,11 +173,11 @@ function Menu() {
           >
             <div className="flex items-center">
               {/* Settings Icon */}
-              <i className="mr-3">⚙️</i>
+              <FaCog className="mr-3" />
               <span>Settings</span>
             </div>
             {/* Right Arrow Icon */}
-            <i>▶</i>
+            <FaAngleRight />
           </button>
           {expanded.settings && (
             <div className="pl-12 space-y-1 mt-1">
@@ -192,7 +202,7 @@ function Menu() {
       <div className="p-4">
         <button onClick={handleLogOut} className="w-full flex items-center px-4 py-3 bg-[#6B0000] rounded-md hover:bg-[#5B0000]">
           {/* Logout Icon */}
-          <i className="mr-3">🚪</i>
+          <FaSignOutAlt className="mr-3" />
           <span>Log Out</span>
         </button>
       </div>
@@ -201,3 +211,7 @@ function Menu() {
 }
 
 export default Menu
+
+
+
+
