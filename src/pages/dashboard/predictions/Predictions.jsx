@@ -9,6 +9,7 @@ export default function Predictions() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [lastUploadUrl, setLastUploadUrl] = useState("");
   const baseUrl = import.meta.env.VITE_ADMIN_URL || "";
 
   const loadPredictions = async () => {
@@ -29,6 +30,7 @@ export default function Predictions() {
 
   const handleUpload = async () => {
     setMessage("");
+    setLastUploadUrl("");
 
     if (!name.trim()) {
       setMessage("Please enter a prediction name.");
@@ -61,9 +63,11 @@ export default function Predictions() {
         throw new Error("Upload failed");
       }
 
+      const result = await response.json();
       setName("");
       setFile(null);
       setMessage("Prediction uploaded successfully.");
+      setLastUploadUrl(result?.data?.fileUrl || "");
       await loadPredictions();
     } catch (error) {
       setMessage("Upload failed. Please try again.");
@@ -138,6 +142,19 @@ export default function Predictions() {
           {message ? (
             <p className="mt-4 text-sm text-[#7D0000]">{message}</p>
           ) : null}
+          {lastUploadUrl ? (
+            <p className="mt-2 text-sm text-[#3A0B0B]">
+              Uploaded URL:{" "}
+              <a
+                href={lastUploadUrl}
+                className="text-[#7D0000] underline"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {lastUploadUrl}
+              </a>
+            </p>
+          ) : null}
 
           <div className="mt-6 grid gap-3">
             {items.length === 0 ? (
@@ -154,9 +171,19 @@ export default function Predictions() {
                     <p className="text-base font-semibold text-[#3A0B0B]">
                       {item.name}
                     </p>
-                    <p className="text-sm text-[#6B2A2A]">
-                      {item.originalName || "PDF file"}
-                    </p>
+                  <p className="text-sm text-[#6B2A2A]">
+                    {item.originalName || "PDF file"}
+                  </p>
+                  {item.fileUrl ? (
+                    <a
+                      href={item.fileUrl}
+                      className="text-xs text-[#7D0000] underline"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      View file URL
+                    </a>
+                  ) : null}
                   </div>
                   <button
                     type="button"
